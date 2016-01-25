@@ -32,15 +32,15 @@ if 0 | endif
  NeoBundle 'scrooloose/syntastic' "checa a syntax da linguagem on the fly
  
  " colorschemes
-" NeoBundle 'croaker/mustang-vim' 
+ NeoBundle 'croaker/mustang-vim' 
 " NeoBundle 'vim-scripts/greens' 
 " NeoBundle 'jacekd/vim-iawriter' 
 " NeoBundle 'morhetz/gruvbox' 
 " NeoBundle 'flazz/vim-colorschemes'
 " NeoBundle 'altercation/vim-colors-solarized'
-" NeoBundle 'trapd00r/neverland-vim-theme'
+NeoBundle 'trapd00r/neverland-vim-theme'
 NeoBundle 'w0ng/vim-hybrid'
-" NeoBundle '29decibel/codeschool-vim-theme'
+"NeoBundle '29decibel/codeschool-vim-theme'
 " NeoBundle 'gregsexton/Gravity'
 " NeoBundle 'ajh17/Spacegray.vim'
 " NeoBundle 'gosukiwi/vim-atom-dark'
@@ -95,8 +95,19 @@ syntax on
 let mapleader = ','
  
 " Terminal customization
+"so /Users/Luiz_Arthur/.vim/bundle/vim-hybrid/colors/hybrid.vim
+colorscheme hybrid 
 set background=dark
-colorscheme hybrid
+
+" Nerverland-vim-theme (favorite themes)
+" so /Users/Luiz_Arthur/.vim/bundle/neverland-vim-theme/colors/neverland2-darker.vim
+" so /Users/Luiz_Arthur/.vim/bundle/neverland-vim-theme/colors/neverland2.vim
+
+" mustang-vim theme
+" so /Users/Luiz_Arthur/.vim/bundle/mustang-vim/colors/mustang.vim
+
+" so /Users/Luiz_Arthur/.vim/bundle/vim-iawriter/colors/iawriter.vim
+
 
 " Display incomplete commands.
 set showcmd
