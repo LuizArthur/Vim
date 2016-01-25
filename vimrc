@@ -1,0 +1,197 @@
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => General
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+if 0 | endif
+
+ if has('vim_starting')
+   if &compatible
+     set nocompatible               " Be iMproved
+   endif
+
+   " Required:
+   set runtimepath+=~/.vim/bundle/neobundle.vim/
+ endif
+
+ " Required:
+ call neobundle#begin(expand('~/.vim/bundle/'))
+
+ " Let NeoBundle manage NeoBundle
+ " Required:
+ NeoBundleFetch 'Shougo/neobundle.vim'
+
+ " My Bundles here:
+ " Refer to |:NeoBundle-examples|.
+ " Note: You don't set neobundle setting in .gvimrc!
+  
+ " utilities
+ NeoBundle 'kien/ctrlp.vim' " fuzzy find files
+ NeoBundle 'scrooloose/nerdtree' " file drawer, open with :NERDTreeToggle
+ NeoBundle 'benmills/vimux'
+ NeoBundle 'tpope/vim-fugitive' " the ultimate git helper
+ NeoBundle 'tpope/vim-commentary' " comment/uncomment lines with gcc or gc in visual mode
+ NeoBundle 'scrooloose/syntastic' "checa a syntax da linguagem on the fly
+ 
+ " colorschemes
+" NeoBundle 'croaker/mustang-vim' 
+" NeoBundle 'vim-scripts/greens' 
+" NeoBundle 'jacekd/vim-iawriter' 
+" NeoBundle 'morhetz/gruvbox' 
+" NeoBundle 'flazz/vim-colorschemes'
+" NeoBundle 'altercation/vim-colors-solarized'
+" NeoBundle 'trapd00r/neverland-vim-theme'
+NeoBundle 'w0ng/vim-hybrid'
+" NeoBundle '29decibel/codeschool-vim-theme'
+" NeoBundle 'gregsexton/Gravity'
+" NeoBundle 'ajh17/Spacegray.vim'
+" NeoBundle 'gosukiwi/vim-atom-dark'
+" NeoBundle 'NLKNguyen/papercolor-theme'
+" NeoBundle 'christophermca/meta5'
+" NeoBundle 'chriskempson/base16-vim'
+
+ " JavaScript plugins
+ NeoBundle 'pangloss/vim-javascript'
+ NeoBundle 'jelera/vim-javascript-syntax'
+
+ "guia de indentacao ,ig
+ NeoBundle 'Yggdroot/indentLine' 
+ let g:indentLine_color_term = 239
+
+
+ "Número das linhas
+  NeoBundle 'myusuf3/numbers.vim'
+
+ " Python autocompletition
+ NeoBundle 'davidhalter/jedi-vim'
+ 
+ "mostra linhas modificadas usando git status 
+ NeoBundle 'airblade/vim-gitgutter' 
+
+ "script para alinhar :Tab /=.*/ - primeira ococrrncia do =
+ NeoBundle 'godlygeek/tabular' 
+
+ "des/comentar trechos de codigo 
+ NeoBundle 'tomtom/tcomment_vim' 
+
+ "permite alternar num. da linha
+ NeoBundle 'jeffkreeftmeijer/vim-numbertoggle' 
+ 
+ "status/tabline for vim
+ NeoBundle 'vim-airline/vim-airline'
+
+ " Window swap
+ NeoBundle 'wesQ3/vim-windowswap'
+
+ call neobundle#end()
+
+ " Required:
+ filetype plugin indent on
+
+ " If there are uninstalled bundles found on startup,
+ " this will conveniently prompt you to install them.
+ NeoBundleCheck
+
+syntax on
+
+let mapleader = ','
+ 
+" Terminal customization
+set background=dark
+colorscheme hybrid
+
+" Display incomplete commands.
+set showcmd
+" Display the mode you're in.
+set showmode
+
+" Intuitive backspacing.
+set backspace=indent,eol,start
+" Handle multiple buffers better.
+set hidden
+
+" Enhanced command line completion.
+set wildmenu
+" Complete files like a shell.
+set wildmode=list:longest
+
+" Case-insensitive searching.
+set ignorecase
+" But case-sensitive if expression contains a capital letter.
+set smartcase
+
+" Show line numbers.
+set number
+" Show cursor position.
+set ruler
+
+" Highlight matches as you type.
+set incsearch
+" Don't highlight matches.
+set hlsearch
+
+" Turn off line wrapping.
+set nowrap    
+" Show 3 lines of context around the cursor.
+set scrolloff=3
+
+" Set the terminal's title
+set title
+" No beeping.
+set visualbell
+
+" Don't make a backup before overwriting a file.
+set nobackup
+" And again.
+set nowritebackup
+" Keep swap files in one location
+set directory=$HOME/.vim/tmp//,.
+
+" Global tab width.
+set tabstop=2
+" And again, related.
+set shiftwidth=2
+
+set modeline
+
+set autoread
+
+"set guifont=Liberation\ Mono\ for\ Powerline\ 10 
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Plugin settings
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" NERDTree settings
+" close NERDTree after a file is opened
+let g:NERDTreeQuitOnOpen=0
+" show hidden files in NERDTree
+let NERDTreeShowHidden=1
+" Toggle NERDTree
+nmap <silent> <C-m> :NERDTreeToggle<cr>
+" expand to the path of the file in the current buffer
+nmap <silent> <C-y> :NERDTreeFind<cr>
+
+" Airline settings
+" the separator used on the left side >
+let g:airline_left_sep='>'
+" the separator used on the right side >
+let g:airline_right_sep='<'
+" Show status bar with only one file open
+set laststatus=2
+" enable/disable automatic population of the `g:airline_symbols` dictionary with powerline symbols. >
+let g:airline_powerline_fonts=0
+
+" Powerline settings
+" Symbol
+let g:Powerline_symbols = 'fancy'
+
+" Syntastic settings
+let g:syntastic_python_python_exec = '/usr/local/bin/python3'
+let g:syntastic_html_tidy_exec = '/usr/local/bin/tidy'
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_aggregate_errors = 1
